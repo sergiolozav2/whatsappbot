@@ -25,6 +25,7 @@ server.post("/webhook", async (request, reply) => {
   try {
     const message = objectFromWebhookResponse(request.body);
 
+    // Si no es mensaje, que no haga nada
     if (message.type !== MessageTypes.notify) {
       return { success: "false" };
     }
@@ -32,12 +33,10 @@ server.post("/webhook", async (request, reply) => {
 
     if (!user) {
       return { success: "false" };
-      return;
     }
 
     let nextStep = "";
     const step = user.conversation_step;
-    console.log(user);
     switch (step) {
       case "nuevo":
         await sendWhatsappText(
