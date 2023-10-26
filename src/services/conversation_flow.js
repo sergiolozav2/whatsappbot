@@ -4,9 +4,15 @@
 export const steps = {
     inicio: {
         message: "Bienvenido a CaimanTec",
-        nextStep: [steps.costos,2,3]
+        nextStep: [steps.informacion,steps.comprar,steps.soporte]
     },
-    costos: {
+    informacion: {
+        message: "Seleccionaste información"
+    },
+    comprar: {
 
+    },
+    soporte: {
+        
     }
 }
