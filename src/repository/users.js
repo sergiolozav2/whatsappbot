@@ -1,6 +1,6 @@
 import { steps } from "../services/conversation_flow.js";
 
-const allowedNumbers = new Set(["59175034784", "59170005958"]);
+const allowedNumbers = new Set(["59170005958"]);
 const usersDb = {};
 
 export async function getUserByPhone(phone) {
