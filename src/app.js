@@ -25,7 +25,7 @@ server.post("/chatgpt", async (request, reply) => {
   return { text: res }
 })
 
-server.listen({host:"0.0.0.0", port: 8000}, (err, address) => {
+server.listen({host:"0.0.0.0", port: 3000}, (err, address) => {
     if(err) {
         console.log(err);
         process.exit(1);
