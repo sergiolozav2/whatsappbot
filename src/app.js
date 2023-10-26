@@ -1,3 +1,4 @@
+import fetch from 'node-fetch';
 import { chatgpt } from "./services/chatgpt.js";
 import * as fastify from "fastify";
 

@@ -16,10 +16,14 @@
     "chatgpt": "^5.2.5",
     "dotenv": "^16.3.1",
     "fastify": "^4.24.3",
+    "node-fetch": "^3.3.2",
     "nodemon": "^3.0.1"
   },
   "engines": {
     "npm": ">=8.0.0 <= 9.5.1",
     "node": ">=16.0.0 <= 19.8.0"
+  },
+  "devDependencies": {
+    "@flydotio/dockerfile": "^0.4.10"
   }
 }
