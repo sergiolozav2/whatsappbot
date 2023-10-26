@@ -1,7 +1,7 @@
 import fetch from 'node-fetch';
 import { chatgpt } from "./services/chatgpt.js";
 import * as fastify from "fastify";
-import { setWebhook } from './services/whatsapp.js';
+import { setWebhook, objectFromWebhookResponse } from './services/whatsapp.js';
 
 const server = fastify.fastify()
 
@@ -11,11 +11,12 @@ server.get("/", async (request, reply) => {
 
 
 server.post("/webhook", async (request, reply) => {
-  console.log(request.body);
-  console.log(request.headers)
-  console.log(request.query);z
 
-  return { mensage: JSON.stringify(request) }
+  const message = objectFromWebhookResponse(request.body);
+  
+
+
+  return { mensage: "hola" }
 })
 
 

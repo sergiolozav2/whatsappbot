@@ -21,6 +21,25 @@ export async function sendWhatsappText(to, message) {
   return response
 }
 
+export const MessageTypes = {
+  text: "text",
+  image: "image",
+  unknown: "unknown"
+}
+
+export function objectFromWebhookResponse(body) {
+  const value = body?.entry[0]?.changes[0]?.value
+  const { messages } = value;
+  const message = messages[0]
+  let { from, text = "", type = MessageTypes.unknown } = message
+  
+  if(type === MessageTypes.text) {
+    text = message.text.body;
+  }
+
+  return { from, type, text}
+
+}
 
 export async function setWebhook(webhook_url) {
   const endpoint = `set_webhook?webhook_url=${webhook_url}&enable=true&instance_id=${instance_id}&access_token=${account_token}`
