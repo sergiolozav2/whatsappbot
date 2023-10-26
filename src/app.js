@@ -17,7 +17,7 @@ server.post("/webhook", async (request, reply) => {
 server.post("/chatgpt", async (request, reply) => {
   const query = request.query.prompt
   const res = await chatgpt.sendMessage(query);
-  return { text: res.text }
+  return { text: res }
 })
 
 server.listen({port: 8000}, (err, address) => {
