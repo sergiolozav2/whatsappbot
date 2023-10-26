@@ -1,5 +1,4 @@
 import axios from "axios";
-import { account_sid, token } from "../constants/env.js";
 
 const account_token = "65397bc2e2e86";
 const instance_id = "653A6E4C73CAB";

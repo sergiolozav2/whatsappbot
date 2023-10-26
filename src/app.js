@@ -1,5 +1,3 @@
-import { account_sid } from "./constants/env.js";
-import { sendWhatsappText } from "./services/whatsapp.js";
 import { chatgpt } from "./services/chatgpt.js";
 import * as fastify from "fastify";
 
