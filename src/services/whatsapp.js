@@ -20,3 +20,12 @@ export async function sendWhatsappText(to, message) {
   const response = await axios.post(`${url}send`, data, defaultHeaders);
   return response
 }
+
+
+export async function setWebhook(webhook_url) {
+  const endpoint = `set_webhook?webhook_url=${webhook_url}&enable=true&instance_id=${instance_id}&access_token=${account_token}`
+
+  const response = await axios.get(`${url}${endpoint}`)
+  console.log(response)
+  return response;
+}
