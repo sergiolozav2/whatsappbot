@@ -1,0 +1,33 @@
+c. Hola
+
+s: Hola amigo, bienvenido a Caiman Tec. Soy un robot programado para responder tus preguntas ¿Qué deseas hacer?
+1. Información
+2. Comprar productos
+3. Soporte técnico
+
+c: fdsfds
+
+s: Ups! Parece ser una opción no válida. Intenta con 1, 2 o 3 
+
+c: 1
+s: Perfecto! Preguntame las dudas que tengas sobre Caiman Tec. Presiona el botón para salir
+c: ¿Que hace esta empresa?
+s: {preguntar a chatgpt, colocar una semilla de información base de respuestas comunes}
+
+c: ¿Que hay de la hackaton?
+s: {si chatgpt no sabe: No tengo información de ese tema, intenta contactar a soporte técnico}
+
+c: Salir
+
+s: Hola amigo, bienvenido a Caiman Tec. Soy un robot programado para responder tus preguntas ¿Qué deseas hacer?
+1. Información
+2. Comprar productos
+3. Soporte técnico
+
+s: Comprar productos
+
+c: Claro! Elige cualquiera de los siguientes:
+1. Manzanas 5Bs/Unidad
+2. Peras 3Bs/Unidad
+3. Bananas 2Bs/Unidad
+
