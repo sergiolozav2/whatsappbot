@@ -4,8 +4,8 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "start": "node ./build/app.js",
-    "build": "tsc -p tsconfig.json",
+    "start": "npm run build && node ./build/app.js",
+    "build": "npx tsc",
     "dev": "nodemon --watch src src/app.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
