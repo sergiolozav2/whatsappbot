@@ -31,7 +31,8 @@ export function objectFromWebhookResponse(body) {
   const value = body?.entry[0]?.changes[0]?.value
   const { messages } = value;
   const message = messages[0]
-  let { from, text = "", type = MessageTypes.unknown } = message
+  let text = "";
+  let { from, type = MessageTypes.unknown } = message
   
   if(type === MessageTypes.text) {
     text = message.text.body;

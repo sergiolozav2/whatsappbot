@@ -18,4 +18,5 @@ export const chatgpt = {
     const message =  response.data.choices[0];
     return message.message.content
   },
+  
 };

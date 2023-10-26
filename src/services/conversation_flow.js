@@ -1,41 +1,44 @@
 export const steps = {
+  nuevo: {
+    nextStep: ["inicio"],
+  },
   inicio: {
     message: "Bienvenido a CaimanTec",
-    nextStep: [steps.informacion, steps.comprar, steps.soporte],
+    nextStep: ["informacion", "comprar", "soporte"],
   },
 
   informacion: {
     message: "Seleccionaste información",
-    nextStep: [steps.respuestaInformacion],
+    nextStep: ["respuestaInformacion"],
   },
   comprar: {
     message: "Muestra productos",
-    nextStep: [steps.cantidad],
+    nextStep: ["cantidad"],
   },
   soporte: {
     message: "Ingrese sus consultas",
-    nextStep: [steps.respuesta],
+    nextStep: ["respuesta"],
   },
 
   cantidad: {
     message: "Pago",
-    nextStep: [steps.pago],
+    nextStep: ["pago"],
   },
   pago: {
     message: "Lee QR",
-    nextStep: [steps.verificacion],
+    nextStep: ["verificacion"],
   },
   verificacion: {
     message: "Pago recibido",
-    nextStep: [steps.message], // Agregar registro de cliente con crm?
+    nextStep: ["message"], // Agregar registro de cliente con crm?
   },
 
   respuesta: {
     message: "Respuesta de ChatGPT",
-    nextStep: [steps.soporte, steps.inicio],
+    nextStep: ["soporte", "inicio"],
   },
   respuestaInformacion: {
     message: "Respuesta de ChatGPT",
-    nextStep: [steps.informacion, steps.inicio],
+    nextStep: ["informacion", "inicio"],
   },
 };
