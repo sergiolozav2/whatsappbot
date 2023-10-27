@@ -1,19 +1,19 @@
 "use strict";
 
-import fetch from "node-fetch";
-import { chatgpt } from "./services/chatgpt.js";
 import * as fastify from "fastify";
 import {
   setWebhook,
   objectFromWebhookResponse,
   sendWhatsappText,
   MessageTypes,
+  sendWhatsappQR,
 } from "./services/whatsapp.js";
 import {
   getUserByPhone,
   updateUserConversationStep,
 } from "./repository/users.js";
 import { steps } from "./services/conversation_flow.js";
+import { chatgpt } from "./services/chatgpt.js";
 
 const server = fastify.fastify();
 
@@ -41,15 +41,22 @@ server.post("/webhook", async (request, reply) => {
       case "nuevo":
         await sendWhatsappText(
           user.phone,
-          "Bienvenido a CaimanTec 🐊, soy una IA asistente. ¿Qué deseas hacer? \n1. Información \n2. Comprar \n3. Soporte"
+          await chatgpt.MessageTypes(message.text)
         );
-        nextStep = "inicio";
+        // sendWhatsappQR(user.phone, "funciona");
+        nextStep = "nuevo";
         break;
 
       case "inicio":
         const options = steps[step].nextStep;
         nextStep = options[Number.parseInt(message.text) - 1];
-        await sendWhatsappText(user.phone, `Haz seleccionado ${nextStep}`);
+
+        if (!nextStep) {
+          nextStep = "inicio";
+          await sendWhatsappText(user.phone, `Selecciona una opción válida!`);
+        } else {
+          await sendWhatsappText(user.phone, `Haz seleccionado ${nextStep}`);
+        }
         break;
       default:
         // Para hacer pruebas si sé sale del rango lo voy a reiniciar

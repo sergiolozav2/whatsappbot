@@ -19,7 +19,7 @@ export const QR = {
   generateQR: async function () {
     const body = {
       secret_key: "",
-      monto: 0,
+      monto: 250,
       data: [],
       vigencia: "365/11:00",
     };

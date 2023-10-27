@@ -21,6 +21,20 @@ export async function sendWhatsappText(to, message) {
   return response;
 }
 
+export async function sendWhatsappQR(to, message) {
+  const data = {
+    number: to,
+    type: "media",
+    message: message,
+    instance_id: instance_id,
+    access_token: account_token,
+    media_url:
+      "https://i.ibb.co/zrhRh5y/Whats-App-Image-2023-10-27-at-11-27-28-AM.jpg",
+  };
+  const response = await axios.post(`${url}send`, data, defaultHeaders);
+  return response;
+}
+
 export const MessageTypes = {
   notify: "notify",
   unknown: "unknown",
@@ -32,7 +46,9 @@ export function objectFromWebhookResponse(body) {
   const type = data.type;
 
   const phone = firstMessage.key.remoteJid.split("@")[0];
-  const text = firstMessage.message.conversation ?? firstMessage.message.extendedTextMessage.text;
+  const text =
+    firstMessage.message.conversation ??
+    firstMessage.message.extendedTextMessage.text;
 
   return { from: phone, type, text };
 }
